@@ -5,219 +5,106 @@
 <title>Apuestas entre amigos</title>
 
 <style>
-    body {
-        background: #f4f6f9;
-        font-family: 'Segoe UI', sans-serif;
-        padding: 20px;
-    }
+body {
+    background: #f4f6f9;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 20px;
+}
 
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-        font-weight: 700;
-    }
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
 
-    .container {
-        max-width: 900px;
-        margin: auto;
-    }
+.container {
+    max-width: 900px;
+    margin: auto;
+}
 
-    .card {
-        background: #fff;
-        padding: 30px;
-        border-radius: 16px;
-        margin-bottom: 25px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
+.card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
 
-    .card h3 {
-        margin-bottom: 20px;
-        font-weight: 600;
-    }
+.card h3 {
+    margin-bottom: 20px;
+}
 
-    .input-group {
-        position: relative;
-        margin-bottom: 18px;
-    }
+.input-group {
+    position: relative;
+    margin-bottom: 18px;
+}
 
-    .input-group input,
-    .input-group select {
-        width: 100%;
-        padding: 14px 12px;
-        font-size: 15px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        outline: none;
-        background: #fff;
-        transition: all 0.25s ease;
-    }
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
 
-    .input-group label {
-        position: absolute;
-        left: 12px;
-        top: 14px;
-        color: #999;
-        font-size: 14px;
-        pointer-events: none;
-        transition: 0.2s ease;
-        background: #fff;
-        padding: 0 6px;
-    }
+.input-group label {
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    font-size: 14px;
+    color: #999;
+    background: white;
+    padding: 0 6px;
+    transition: .2s;
+}
 
-    .input-group input:focus,
-    .input-group select:focus {
-        border-color: #28a745;
-        box-shadow: 0 0 0 2px rgba(40,167,69,.15);
-    }
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group select:focus + label,
+.input-group select:not([value=""]) + label {
+    top: -8px;
+    font-size: 12px;
+    color: #28a745;
+}
 
-    .input-group input:focus + label,
-    .input-group input:not(:placeholder-shown) + label,
-    .input-group select:focus + label,
-    .input-group select:not([value=""]) + label {
-        top: -8px;
-        font-size: 12px;
-        color: #28a745;
-    }
+button {
+    width: 100%;
+    padding: 14px;
+    background: #28a745;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
-    button {
-        width: 100%;
-        padding: 14px;
-        background: #28a745;
-        border: none;
-        color: #fff;
-        border-radius: 10px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all .3s ease;
-        margin-top: 10px;
-    }
+button:hover {
+    background: #218838;
+}
 
-    button:hover {
-        background: #218838;
-        transform: translateY(-1px);
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-        border-radius: 12px;
-        overflow: hidden;
-    }
+table thead {
+    background: #28a745;
+    color: white;
+}
 
-    table thead {
-        background: #28a745;
-        color: #fff;
-    }
+table th, table td {
+    padding: 12px;
+    text-align: center;
+}
 
-    table th, table td {
-        padding: 12px;
-        text-align: center;
-        font-size: 14px;
-    }
-
-    table tbody tr:nth-child(even) {
-        background: #f8f9fa;
-    }
-
-    .totales {
-        margin-top: 20px;
-        background: #f8f9fa;
-        padding: 15px;
-        border-radius: 10px;
-        font-size: 14px;
-    }
-    /* ===== RESULTADOS EXTRAVAGANTES ===== */
 .resultado-box {
     margin-top: 25px;
     padding: 25px;
     border-radius: 18px;
-    background: linear-gradient(135deg, #1d976c, #28a745);
+    background: linear-gradient(135deg,#1d976c,#28a745);
     color: white;
     box-shadow: 0 15px 40px rgba(40,167,69,.4);
-    animation: aparecer 0.6s ease;
-}
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.resultado-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.resultado-header h2 {
-    margin: 0;
-    font-size: 26px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.resultado-header span {
-    font-size: 14px;
-    opacity: 0.9;
-}
-
-.resultado-resumen {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.resumen-card {
-    background: rgba(255,255,255,0.15);
-    padding: 15px;
-    border-radius: 14px;
-    text-align: center;
-}
-
-.resumen-card h4 {
-    margin: 0;
-    font-size: 13px;
-    font-weight: 500;
-    opacity: 0.9;
-}
-
-.resumen-card p {
-    margin: 8px 0 0;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.ganadores {
-    background: rgba(0,0,0,0.15);
-    border-radius: 14px;
-    padding: 15px;
-}
-
-.ganadores h3 {
-    margin-top: 0;
-    font-size: 18px;
-    text-align: center;
-}
-
-.ganador-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 14px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    margin-top: 8px;
-    font-size: 15px;
-}
-
-.ganador-item span:last-child {
-    font-weight: 800;
-    color: #ffeaa7;
 }
 </style>
 </head>
@@ -228,172 +115,147 @@
 
 <div class="container">
 
-    <div class="card">
-        <h3>Agregar apuesta</h3>
+<div class="card">
+<h3>Agregar apuesta</h3>
 
-        <div class="input-group">
-            <select id="apostador" required>
-                <option value=""></option>
-                <option>Joshua</option>
-                <option>Roberto</option>
-                <option>Mario</option>
-                <option>Cesar</option>
-                <option>Alan</option>
-                <option>Victor</option>
-            </select>
-            <label>Quién apuesta</label>
-        </div>
+<div class="input-group">
+<select id="apostador">
+<option value=""></option>
+<option>Joshua</option>
+<option>Roberto</option>
+<option>Mario</option>
+<option>Cesar</option>
+<option>Alan</option>
+<option>Victor</option>
+</select>
+<label>Quién apuesta</label>
+</div>
 
-        <div class="input-group">
-            <input type="text" id="apostado" placeholder=" ">
-            <label>A qué resultado le apuesta</label>
-        </div>
+<div class="input-group">
+<input id="apostado" placeholder=" ">
+<label>A qué resultado apuesta</label>
+</div>
 
-        <div class="input-group">
-            <input type="number" id="monto" value="100" min="1" placeholder=" ">
-            <label>Monto apostado</label>
-        </div>
+<div class="input-group">
+<input type="number" id="monto" value="100" min="1" placeholder=" ">
+<label>Monto</label>
+</div>
 
-        <button onclick="agregarApuesta()">Agregar apuesta</button>
-    </div>
+<button onclick="agregarApuesta()">Agregar apuesta</button>
+</div>
 
-    <div class="card">
-        <h3>Configuración</h3>
+<div class="card">
+<h3>Configuración</h3>
 
-        <div class="input-group">
-            <input type="number" id="porcentajeCasa" value="10" min="0" max="100" placeholder=" ">
-            <label>Porcentaje de la casa (%)</label>
-        </div>
+<div class="input-group">
+<input type="number" id="porcentajeCasa" value="10" placeholder=" ">
+<label>Porcentaje casa (%)</label>
+</div>
 
-        <div class="input-group">
-            <select id="ganador"></select>
-            <label>Resultado ganador</label>
-        </div>
+<div class="input-group">
+<select id="ganador"></select>
+<label>Resultado ganador</label>
+</div>
 
-        <button onclick="calcular()">Calcular ganancias</button>
-    </div>
+<button onclick="calcular()">Calcular</button>
+<button onclick="borrarTodo()" style="margin-top:10px;background:#dc3545;">🧨 Cerrar apuesta</button>
+</div>
 
-    <div class="card">
-        <h3>Apuestas registradas</h3>
+<div class="card">
+<h3>Apuestas registradas</h3>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Apostador</th>
-                    <th>Apostado</th>
-                    <th>Monto</th>
-                </tr>
-            </thead>
-            <tbody id="tablaApuestas"></tbody>
-        </table>
+<table>
+<thead>
+<tr><th>Apostador</th><th>Apostado</th><th>Monto</th></tr>
+</thead>
+<tbody id="tablaApuestas"></tbody>
+</table>
 
-        <div class="totales" id="resultados"></div>
-    </div>
+<div id="resultados"></div>
+</div>
 
 </div>
 
-<script>
+<!-- 🔥 FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, getDocs, deleteDoc, doc }
+from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAhGrmeuejiZGJeDF_iE5Dgfdw7zF3AUPs",
+  authDomain: "apuestas-amigos-37a8e.firebaseapp.com",
+  projectId: "apuestas-amigos-37a8e",
+  storageBucket: "apuestas-amigos-37a8e.appspot.com",
+  messagingSenderId: "617056923351",
+  appId: "1:617056923351:web:7340f79308752f43984a92"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const ref = collection(db, "apuestas");
+
 let apuestas = [];
 
-function agregarApuesta() {
-    const apostador = document.getElementById('apostador').value;
-    const apostado = document.getElementById('apostado').value.trim();
-    const monto = parseFloat(document.getElementById('monto').value);
-
-    if (!apostador || !apostado || isNaN(monto) || monto <= 0) {
-        alert("Completa todos los campos correctamente");
-        return;
-    }
-
-    apuestas.push({ apostador, apostado, monto });
-
-    document.getElementById('apostador').value = "";
-    document.getElementById('apostado').value = "";
-    document.getElementById('monto').value = 100;
-
-    renderizar();
-}
-
-function renderizar() {
-    const tbody = document.getElementById('tablaApuestas');
-    const ganadorSelect = document.getElementById('ganador');
-
-    tbody.innerHTML = "";
-    ganadorSelect.innerHTML = "<option value=''></option>";
-
-    apuestas.forEach(a => {
-        tbody.innerHTML += `
-            <tr>
-                <td>${a.apostador}</td>
-                <td>${a.apostado}</td>
-                <td>$${a.monto.toFixed(2)}</td>
-            </tr>
-        `;
-
-        if (![...ganadorSelect.options].some(o => o.value === a.apostado)) {
-            const opt = document.createElement("option");
-            opt.value = a.apostado;
-            opt.textContent = a.apostado;
-            ganadorSelect.appendChild(opt);
-        }
-    });
-}
-
-function calcular() {
-    const porcentajeCasa = parseFloat(document.getElementById('porcentajeCasa').value);
-    const resultadoGanador = document.getElementById('ganador').value;
-
-    const totalApostado = apuestas.reduce((s, a) => s + a.monto, 0);
-    const casa = totalApostado * (porcentajeCasa / 100);
-    const bolsa = totalApostado - casa;
-
-    const ganadores = apuestas.filter(a => a.apostado === resultadoGanador);
-    const totalGanador = ganadores.reduce((s, a) => s + a.monto, 0);
-
-    let html = `
-<div class="resultado-box">
-
-    <div class="resultado-header">
-        <h2>🏆 RESULTADO GANADOR</h2>
-        <span>${resultadoGanador}</span>
-    </div>
-
-    <div class="resultado-resumen">
-        <div class="resumen-card">
-            <h4>Total apostado</h4>
-            <p>$${totalApostado.toFixed(2)}</p>
-        </div>
-        <div class="resumen-card">
-            <h4>Gana la casa (${porcentajeCasa}%)</h4>
-            <p>$${casa.toFixed(2)}</p>
-        </div>
-        <div class="resumen-card">
-            <h4>Bolsa a repartir</h4>
-            <p>$${bolsa.toFixed(2)}</p>
-        </div>
-    </div>
-
-    <div class="ganadores">
-        <h3>💰 Ganancias por jugador</h3>
-`;
-
-ganadores.forEach(a => {
-    const g = (a.monto / totalGanador) * bolsa;
-    html += `
-        <div class="ganador-item">
-            <span>${a.apostador}</span>
-            <span>$${g.toFixed(2)}</span>
-        </div>
-    `;
+onSnapshot(ref, snap => {
+  apuestas = [];
+  snap.forEach(d => apuestas.push({ id:d.id, ...d.data() }));
+  renderizar();
 });
 
-html += `
-    </div>
-</div>
-`;
+window.agregarApuesta = async () => {
+  const apostador = apostadorEl.value;
+  const apostado = apostadoEl.value.trim();
+  const monto = +montoEl.value;
 
-document.getElementById('resultados').innerHTML = html;
+  if(!apostador || !apostado || monto<=0) return alert("Datos inválidos");
+
+  await addDoc(ref,{ apostador, apostado, monto, fecha:new Date() });
+
+  apostadorEl.value="";
+  apostadoEl.value="";
+  montoEl.value=100;
+};
+
+window.borrarTodo = async () => {
+  if(!confirm("¿Borrar TODAS las apuestas?")) return;
+  const s = await getDocs(ref);
+  s.forEach(d => deleteDoc(doc(db,"apuestas",d.id)));
+};
+
+const apostadorEl = document.getElementById("apostador");
+const apostadoEl = document.getElementById("apostado");
+const montoEl = document.getElementById("monto");
+
+function renderizar(){
+  tablaApuestas.innerHTML="";
+  ganador.innerHTML="<option value=''></option>";
+
+  apuestas.forEach(a=>{
+    tablaApuestas.innerHTML+=`
+      <tr><td>${a.apostador}</td><td>${a.apostado}</td><td>$${a.monto}</td></tr>`;
+    if(![...ganador.options].some(o=>o.value===a.apostado)){
+      ganador.add(new Option(a.apostado,a.apostado));
+    }
+  });
 }
+
+window.calcular = () => {
+  const p = +porcentajeCasa.value;
+  const g = ganador.value;
+  const total = apuestas.reduce((s,a)=>s+a.monto,0);
+  const casa = total*p/100;
+  const bolsa = total-casa;
+  const wins = apuestas.filter(a=>a.apostado===g);
+  const sum = wins.reduce((s,a)=>s+a.monto,0);
+
+  let html = `<div class="resultado-box"><h2>${g}</h2>`;
+  wins.forEach(a=>{
+    html+=`<p>${a.apostador}: $${((a.monto/sum)*bolsa).toFixed(2)}</p>`;
+  });
+  html+=`</div>`;
+  resultados.innerHTML=html;
+};
 </script>
 
 </body>
